@@ -8,6 +8,10 @@ VALUES (nextval('dobavljac_seq'), 'Fruit DOO', 'Novosadska 777', '+3813123126');
 INSERT INTO "dobavljac"("id", "naziv", "adresa", "kontakt")
 VALUES (nextval('dobavljac_seq'), 'CENTROPROIZVOD', 'Dobanovacki put bb', '+381681341');
 
+-- test dobavljac
+INSERT INTO "dobavljac"("id", "naziv", "adresa", "kontakt")
+VALUES (-100, 'Test Naziv', 'Test Adresa', 'Test Kontakt');
+
 -- artikl
 INSERT INTO "artikl"("id", "naziv", "proizvodjac")
 VALUES (nextval('artikl_seq'), 'Moja Kravica sveže mleko 2,8 % m.m. 1l', 'AD Imlek');
@@ -36,6 +40,10 @@ INSERT INTO "artikl"("id", "naziv", "proizvodjac")
 VALUES (nextval('artikl_seq'), 'Puding vanila', 'CENTROPROIZVOD');
 INSERT INTO "artikl"("id", "naziv", "proizvodjac")
 VALUES (nextval('artikl_seq'), 'Puding jagoda', 'CENTROPROIZVOD');
+
+-- test artikl
+INSERT INTO "artikl"("id", "naziv", "proizvodjac")
+VALUES (-100, 'Test Naziv', 'Test Proizvodjac');
 
 INSERT INTO "porudzbina"("id", "datum", "dobavljac", "isporuceno", "iznos", "placeno")
 VALUES (nextval('porudzbina_seq'), to_date('01.03.2019.', 'dd.mm.yyyy.'), 1, to_date('01.05.2019.', 'dd.mm.yyyy.'), 500, true);

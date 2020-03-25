@@ -2,6 +2,9 @@ package rva.jpa;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.math.BigDecimal;
 
 
@@ -9,6 +12,7 @@ import java.math.BigDecimal;
  * The persistent class for the stavka_porudzbine database table.
  * 
  */
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler" })
 @Entity
 @Table(name="stavka_porudzbine")
 @NamedQuery(name="StavkaPorudzbine.findAll", query="SELECT s FROM StavkaPorudzbine s")
