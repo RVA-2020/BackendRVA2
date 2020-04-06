@@ -43,11 +43,14 @@ public class DobavljacRestController {
 	
 	@DeleteMapping("dobavljac/{id}")
 	public ResponseEntity<Dobavljac> deleteDobavljac(@PathVariable ("id") Integer id){
+		
 		if(!dobavljacRepository.existsById(id))
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		dobavljacRepository.deleteById(id);
+		
 		if(id == -100)
 			jdbcTemplate.execute("INSERT INTO \"dobavljac\"(\"id\", \"naziv\", \"adresa\", \"kontakt\")VALUES(-100, 'Naziv test', 'Adresa test', 'Kontakt test')");
+		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 

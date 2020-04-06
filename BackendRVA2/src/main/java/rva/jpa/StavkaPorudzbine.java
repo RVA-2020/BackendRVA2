@@ -20,9 +20,14 @@ public class StavkaPorudzbine implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="STAVKA_PORUDZBINE_ID_GENERATOR", sequenceName="STAVKA_PORUDZBINE_SEQ")
+	@SequenceGenerator(name="STAVKA_PORUDZBINE_ID_GENERATOR", sequenceName="STAVKA_PORUDZBINE_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="STAVKA_PORUDZBINE_ID_GENERATOR")
 	private Integer id;
+	
+
+	/*
+	 * Proveriti da li je kompletan @SequenceGenerator
+	*/
 
 	private BigDecimal cena;
 

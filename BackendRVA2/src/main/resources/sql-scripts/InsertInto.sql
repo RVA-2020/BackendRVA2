@@ -56,6 +56,10 @@ VALUES (nextval('porudzbina_seq'), to_date('01.03.2019.', 'dd.mm.yyyy.'), 4, to_
 INSERT INTO "porudzbina"("id", "datum", "dobavljac", "isporuceno", "iznos", "placeno")
 VALUES (nextval('porudzbina_seq'), to_date('01.07.2019.', 'dd.mm.yyyy.'), 4, to_date('01.10.2019.', 'dd.mm.yyyy.'), 800, true);
 
+-- test porudzbina
+INSERT INTO "porudzbina"("id", "datum", "dobavljac", "isporuceno", "iznos", "placeno")
+VALUES (-100, to_date('01.07.2019.', 'dd.mm.yyyy.'), 4, to_date('01.10.2019.', 'dd.mm.yyyy.'), 1200, true);
+
 INSERT INTO "stavka_porudzbine"("id", "porudzbina", "redni_broj", "artikl", "kolicina", "jedinica_mere", "cena")
 VALUES (nextval('stavka_porudzbine_seq'), 1, 1, 1, 20, 'komad', 100);
 INSERT INTO "stavka_porudzbine"("id", "porudzbina", "redni_broj", "artikl", "kolicina", "jedinica_mere", "cena")
@@ -88,3 +92,7 @@ INSERT INTO "stavka_porudzbine"("id", "porudzbina", "redni_broj", "artikl", "kol
 VALUES (nextval('stavka_porudzbine_seq'), 5, 1, 11, 5, 'kg', 320);
 INSERT INTO "stavka_porudzbine"("id", "porudzbina", "redni_broj", "artikl", "kolicina", "jedinica_mere", "cena")
 VALUES (nextval('stavka_porudzbine_seq'), 5, 2, 12, 8, 'kg', 250);
+
+-- test stavka porudzbine
+INSERT INTO "stavka_porudzbine"("id", "porudzbina", "redni_broj", "artikl", "kolicina", "jedinica_mere", "cena")
+VALUES (-100, 5, 3, 12, 8, 'kg', 250);
