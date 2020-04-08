@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -60,11 +61,16 @@ public class PorudzbinaRestController {
 		return new ResponseEntity<Porudzbina>(HttpStatus.OK);
 	}
 	
+	/**
+	 * Prilikom brisanja porudzine, brisu se i sve stavke za tu porudzbinu
+	 * **/
+	@Transactional
 	@DeleteMapping("porudzbina/{id}")
 	public ResponseEntity<Porudzbina> deletePorudzbina(@PathVariable ("id") Integer id){
 		
 		if(!porudzbinaRepository.existsById(id))
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		jdbcTemplate.execute("delete from stavka_porudzbine where porudzbina = "+id);
 		porudzbinaRepository.deleteById(id);
 		
 		if (id == -100) {
